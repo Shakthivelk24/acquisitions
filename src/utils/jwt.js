@@ -1,22 +1,25 @@
 import logger from '#config/logger.js';
-import jwt, { verify } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret';
 
-const JWT_EXPIRES_IN = '1d'; // Token expires in 1 day
+const JWT_EXPIRES_IN = '1d';
 
 export const jwttoken = {
-  sign: (payload) =>{
+  sign: (payload) => {
     try {
-      return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
+      return jwt.sign(payload, JWT_SECRET, {
+        expiresIn: JWT_EXPIRES_IN
+      });
     } catch (error) {
       logger.error('Error signing JWT:', error);
       throw error;
     }
   },
+
   verify: (token) => {
     try {
-      return verify(token, JWT_SECRET);
+      return jwt.verify(token, JWT_SECRET);
     } catch (error) {
       logger.error('Error verifying JWT:', error);
       throw error;
