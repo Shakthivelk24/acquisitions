@@ -1,0 +1,10 @@
+node_modules
+logs
+.git
+.gitignore
+.env
+.env.*
+.neon_local
+npm-debug.log*
+Dockerfile*
+docker-compose*.yml
