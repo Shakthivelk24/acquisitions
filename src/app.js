@@ -6,6 +6,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import authRouter from '#routes/auth.route.js';
 import securityMiddleware from '#middleware/security.middleware.js';
+import userRouter from '#routes/user.route.js';
 
 
 const app = express();
@@ -24,7 +25,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'ok', timestamp: new Date().toISOString(), uptime: process.uptime() });
+  res.status(200).json({ status: 'OK', timestamp: new Date().toISOString(), uptime: process.uptime() });
 }); 
 
 app.get('/api', (req, res) => {
@@ -32,5 +33,10 @@ app.get('/api', (req, res) => {
 });
 
 app.use('/api/auth',authRouter);
+app.use('/api/users',userRouter);
+
+app.use((req, res) =>{
+  res.status(404).json({ error: 'Not Found' });
+});
 
 export default app;
