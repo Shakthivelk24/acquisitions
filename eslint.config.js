@@ -2,6 +2,7 @@ import js from '@eslint/js';
 
 export default [
   js.configs.recommended,
+
   {
     languageOptions: {
       ecmaVersion: 2022,
@@ -19,6 +20,7 @@ export default [
         clearInterval: 'readonly',
       },
     },
+
     rules: {
       indent: ['error', 2, { SwitchCase: 1 }],
       'linebreak-style': ['error', 'unix'],
@@ -32,8 +34,10 @@ export default [
       'prefer-arrow-callback': 'error',
     },
   },
+
+  // Jest test files
   {
-    files: ['tests/**/*.js'],
+    files: ['**/*.test.js'],
     languageOptions: {
       globals: {
         describe: 'readonly',
@@ -47,7 +51,13 @@ export default [
       },
     },
   },
+
   {
-    ignores: ['node_modules/**', 'coverage/**', 'logs/**', 'drizzle/**'],
+    ignores: [
+      'node_modules/**',
+      'coverage/**',
+      'logs/**',
+      'drizzle/**',
+    ],
   },
 ];
