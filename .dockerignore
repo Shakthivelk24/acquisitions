@@ -3,7 +3,6 @@ logs
 .git
 .gitignore
 .env
-.env.*
 .neon_local
 npm-debug.log*
 Dockerfile*
