@@ -28,9 +28,7 @@ export const authenticateToken = (req, res, next) => {
     // Attach user to request
     req.user = decoded;
 
-    logger.info(
-      `User authenticated: ${decoded.email} (${decoded.role})`
-    );
+    logger.info(`User authenticated: ${decoded.email} (${decoded.role})`);
 
     next();
   } catch (e) {

@@ -5,42 +5,46 @@ import { authenticateUser, createUser } from '#services/auth.service.js';
 import { jwttoken } from '#utils/jwt.js';
 import { cookies } from '#utils/cookies.js';
 
-
-
 export const signUp = async (req, res, next) => {
   try {
     const validationResult = signUpSchema.safeParse(req.body);
 
     if (!validationResult.success) {
       return res.status(400).json({
-        error:'Validation failed',
-        details: formatValidationError(validationResult.error)
+        error: 'Validation failed',
+        details: formatValidationError(validationResult.error),
       });
     }
 
-    const { name,email,password,role} = validationResult.data;
+    const { name, email, password, role } = validationResult.data;
 
-    const user = await createUser({ name,email,password,role });
-    const token = jwttoken.sign({ id: user.id, email:user.email,role: user.role });
+    const user = await createUser({ name, email, password, role });
+    const token = jwttoken.sign({
+      id: user.id,
+      email: user.email,
+      role: user.role,
+    });
 
-    cookies.set(res,'token',token);
+    cookies.set(res, 'token', token);
 
     logger.info(`User registration attempt: ${email}`);
 
     res.status(201).json({
       message: 'User registered successfully',
-      user:{
-        id:user.id,
-        name:user.name,
-        email:user.email,
-        role:user.role
-      }
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+      },
     });
   } catch (error) {
     logger.error('Sign up error: ', error);
 
-    if(error.message === 'User with this email already exists') {
-      return res.status(409).json({ message: 'User with this email already exists' });
+    if (error.message === 'User with this email already exists') {
+      return res
+        .status(409)
+        .json({ message: 'User with this email already exists' });
     }
 
     next(error);
@@ -54,14 +58,18 @@ export const signIn = async (req, res, next) => {
     if (!validationResult.success) {
       return res.status(400).json({
         error: 'Validation failed',
-        details: formatValidationError(validationResult.error)
+        details: formatValidationError(validationResult.error),
       });
     }
 
     const { email, password } = validationResult.data;
 
     const user = await authenticateUser(email, password);
-    const token = jwttoken.sign({ id: user.id, email: user.email, role: user.role });
+    const token = jwttoken.sign({
+      id: user.id,
+      email: user.email,
+      role: user.role,
+    });
 
     cookies.set(res, 'token', token);
 
@@ -73,8 +81,8 @@ export const signIn = async (req, res, next) => {
         id: user.id,
         name: user.name,
         email: user.email,
-        role: user.role
-      }
+        role: user.role,
+      },
     });
   } catch (error) {
     logger.error('Sign in error: ', error);
@@ -89,12 +97,14 @@ export const signIn = async (req, res, next) => {
 export const signOut = async (req, res, next) => {
   try {
     const token = cookies.get(req, 'token');
-    logger.info(`User sign-out attempt: ${token ? 'token-present' : 'token-missing'}`);
+    logger.info(
+      `User sign-out attempt: ${token ? 'token-present' : 'token-missing'}`
+    );
 
     cookies.clear(res, 'token');
 
     res.status(200).json({
-      message: 'User signed out successfully'
+      message: 'User signed out successfully',
     });
   } catch (error) {
     logger.error('Sign out error: ', error);

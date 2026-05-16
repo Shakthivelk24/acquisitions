@@ -1,7 +1,5 @@
 import arcjet, { shield, detectBot, slidingWindow } from '@arcjet/node';
 
-
-
 const aj = arcjet({
   // Get your site key from https://app.arcjet.com and set it as an environment
   // variable rather than hard coding.
@@ -15,7 +13,7 @@ const aj = arcjet({
       // Block all bots except the following
       allow: [
         'CATEGORY:SEARCH_ENGINE', // Google, Bing, etc
-        'CATEGORY:PREVIEW', 
+        'CATEGORY:PREVIEW',
         // Uncomment to allow these other common bot categories
         // See the full list at https://arcjet.com/bot-list
         //"CATEGORY:MONITOR", // Uptime monitoring services
@@ -26,7 +24,7 @@ const aj = arcjet({
       mode: 'LIVE',
       interval: '2s',
       max: 5,
-    })
+    }),
   ],
 });
 

@@ -7,6 +7,7 @@ A secure and scalable backend application built using Node.js and Express.js for
 # 🚀 Features
 
 ## 🔐 Authentication & Authorization
+
 - User Registration
 - User Login
 - JWT Authentication
@@ -15,11 +16,13 @@ A secure and scalable backend application built using Node.js and Express.js for
 - Cookie-based Authentication
 
 ## 👤 User Management
+
 - Get User Details
 - Update User Information
 - Delete User Account
 
 ## 🛡 Security Features
+
 - Arcjet Protection
 - Bot Detection
 - Rate Limiting
@@ -29,6 +32,7 @@ A secure and scalable backend application built using Node.js and Express.js for
 - Winston Logger Support
 
 ## 🐳 DevOps & CI/CD
+
 - Dockerized Backend
 - Docker Compose Support
 - GitHub Actions CI/CD
@@ -36,6 +40,7 @@ A secure and scalable backend application built using Node.js and Express.js for
 - Jest Testing Support
 
 ## 🗄 Database
+
 - PostgreSQL Database
 - Neon Serverless PostgreSQL
 - Drizzle ORM
@@ -46,39 +51,48 @@ A secure and scalable backend application built using Node.js and Express.js for
 # 🛠 Tech Stack
 
 ## Backend
+
 - Node.js
 - Express.js
 
 ## Database
+
 - PostgreSQL
 - Neon Database
 - Drizzle ORM
 
 ## Authentication
+
 - JWT
 - bcrypt
 
 ## Validation
+
 - Zod
 
 ## Security
+
 - Arcjet
 - Helmet
 - CORS
 
 ## Logging
+
 - Morgan
 - Winston
 
 ## DevOps
+
 - Docker
 - GitHub Actions
 
 ## Testing
+
 - Jest
 - Supertest
 
 ---
+
 # ⚙️ Installation
 
 ## 1️⃣ Clone Repository
@@ -190,6 +204,7 @@ npm dev test
 ```
 
 Uses:
+
 - Jest
 - Supertest
 
@@ -246,21 +261,21 @@ Workflow File:
 
 ## Authentication Routes
 
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | `/api/auth/sign-up` | Register User |
-| POST | `/api/auth/sign-in` | Login User |
+| Method | Endpoint            | Description   |
+| ------ | ------------------- | ------------- |
+| POST   | `/api/auth/sign-up` | Register User |
+| POST   | `/api/auth/sign-in` | Login User    |
 
 ---
 
 ## User Routes
 
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/api/users` | Get All Users |
-| GET | `/api/users/:id` | Get User By ID |
-| PUT | `/api/users/:id` | Update User |
-| DELETE | `/api/users/:id` | Delete User |
+| Method | Endpoint         | Description    |
+| ------ | ---------------- | -------------- |
+| GET    | `/api/users`     | Get All Users  |
+| GET    | `/api/users/:id` | Get User By ID |
+| PUT    | `/api/users/:id` | Update User    |
+| DELETE | `/api/users/:id` | Delete User    |
 
 ---
 
@@ -268,24 +283,25 @@ Workflow File:
 
 ## Main Dependencies
 
-| Package | Purpose |
-|---|---|
-| express | Backend Framework |
-| drizzle-orm | ORM for PostgreSQL |
+| Package                  | Purpose                |
+| ------------------------ | ---------------------- |
+| express                  | Backend Framework      |
+| drizzle-orm              | ORM for PostgreSQL     |
 | @neondatabase/serverless | Neon PostgreSQL Driver |
-| bcrypt | Password Hashing |
-| jsonwebtoken | JWT Authentication |
-| zod | Validation |
-| helmet | Security Middleware |
-| cors | Cross-Origin Support |
-| morgan | HTTP Request Logging |
-| winston | Logging |
+| bcrypt                   | Password Hashing       |
+| jsonwebtoken             | JWT Authentication     |
+| zod                      | Validation             |
+| helmet                   | Security Middleware    |
+| cors                     | Cross-Origin Support   |
+| morgan                   | HTTP Request Logging   |
+| winston                  | Logging                |
 
 ---
 
 # 🛡 Arcjet Integration
 
 Arcjet is used for:
+
 - Bot Protection
 - API Shielding
 - Request Validation
@@ -302,6 +318,7 @@ https://arcjet.com
 The backend uses Neon Serverless PostgreSQL.
 
 Features:
+
 - Cloud PostgreSQL
 - Serverless Architecture
 - Fast Scaling
