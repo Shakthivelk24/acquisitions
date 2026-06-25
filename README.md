@@ -98,9 +98,9 @@ A secure and scalable backend application built using Node.js and Express.js for
 ## 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/Shakthivelk24/acquisitions.git
+git clone https://github.com/Shakthivelk24/GitHub-Actions-CI-CD.git
 
-cd acquisitions
+cd GitHub-Actions-CI-CD
 ```
 
 ---
